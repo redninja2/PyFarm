@@ -10,8 +10,6 @@ import sys			# needed to quite the program
 import os			# to set the location of the GUI
 import spritesheet	# needed to manipulate a spritesheet
 
-print("hello")
-
 # Camera: displays content on the screen and allows moving the camera
 class Camera(object):
 	def __init__(self, surface, dimensions):
