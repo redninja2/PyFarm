@@ -14,4 +14,10 @@
 	<natures>
 		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>IMG</name>
+			<value>file:/C:/Users/Nathan/Documents/GitHub/PyFarm/src/images</value>
+		</variable>
+	</variableList>
 </projectDescription>
