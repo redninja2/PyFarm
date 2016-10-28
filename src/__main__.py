@@ -26,7 +26,7 @@ class Camera(object):
 	# the world location. It then calls the render method to render content.
 	def draw(self, image, world_location):
 		# Determines where on the screen the content should be rendered in 
-		# relation to the world loction and camera location
+		# relation to the world location and camera location
 		x = world_location[0] - cam_x_loc 
 		y = world_location[1] - cam_y_loc
 		
