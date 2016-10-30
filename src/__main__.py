@@ -5,10 +5,10 @@
 # I do not intend on actually getting any where on the functionality. 
 # My core goal was getting a moving camera.
 
-import pygame  # game engine
-import sys  # needed to quitWindow the program
-import os  # to set the location of the GUI
-import spritesheet  # needed to manipulate a spritesheet
+import pygame # game engine
+import sys # needed to quitWindow the program
+import os # to set the location of the GUI
+import spritesheet # needed to manipulate a spritesheet
 
 # Camera: displays content on the screen and allows moving the camera
 class Camera(object):
@@ -36,7 +36,7 @@ class Camera(object):
 		# Makes sure that the image does not get drawn outside the camera boundries
 		if x <= self.width and x + image_size[0] >= 1:
 			if y + image_size[1] >= 1 and y <= self.width:
-				self.render(image, (x, y))  # Sends the image to be rendered
+				self.render(image, (x, y)) # Sends the image to be rendered
 
 # Moves camera in a (string) direction: left, up, right, and down.
 def move_cam(direction):
@@ -119,19 +119,19 @@ def init():
 	# Sets the location of the window so nothing is hidden from the user
 	os.environ['SDL_VIDEO_WINDOW_POS'] = "{0}, {1}".format(7, 31)
 	
-	pygame.init()  # initializes pygame
+	pygame.init() # initializes pygame
 
 	# Sets game variables
 	window_x = 1280
 	window_y = 768
-	world_x = window_x * 2  # makes the world twice as large as the window size
+	world_x = window_x * 2 # makes the world twice as large as the window size
 	world_y = window_y * 2
-	clock = pygame.time.Clock()  # allows for ticking
+	clock = pygame.time.Clock() # allows for ticking
 
 	screen = pygame.display.set_mode([window_x, window_y], pygame.RESIZABLE)
 	
-	tile_selected = False  # Game starts without selected tile
-	selected_tile = ()  # slected_tile starts with an empty tuple, because there is no selected tile yet.
+	tile_selected = False # Game starts without selected tile
+	selected_tile = () # slected_tile starts with an empty tuple, because there is no selected tile yet.
 	
 	# Starts the camera at location (0, 0) in relation to the world
 	cam_x_loc = 0 
@@ -166,8 +166,8 @@ def load_images(sheet):
 	# I just assume that the sheet is 128x128. 
 	# Order of for y and for x is important: We want to load the images
 	# from row to row (left to right), not column to column (up and down).
-	for y in range(0, 128, 16):  # cycle through the rows
-		for x in range(0, 128, 16):  # cycle through tiles in the row 
+	for y in range(0, 128, 16): # cycle through the rows
+		for x in range(0, 128, 16): # cycle through tiles in the row 
 			image.append(ss.image_at((x, y, 16, 16)))
 	
 	# Set our custom cursor to an image in the spritesheet
@@ -203,7 +203,7 @@ def animate():
 	# Publishes our screen updates to the window
 	pygame.display.flip()
 	
-init()  # initialize the program.
+init() # initialize the program.
 
 # Game loop
 while 1:
@@ -220,9 +220,9 @@ while 1:
 	elif mouse_pos[1] >= window_y - 20:
 		move_cam("down")
 	
-	clock.tick(60)  # the game fps. The higher the tick, the faster the gametime is.
+	clock.tick(60) # the game fps. The higher the tick, the faster the gametime is.
 	
-	animate()  # refresh the screen 
+	animate() # refresh the screen 
 
 	# Check for events so we can respond to them.
 	for event in pygame.event.get():
@@ -234,15 +234,15 @@ while 1:
 		# If the event is a key down event
 		elif event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_ESCAPE:
-				quitWindow()  # escape will quitWindow the game
+				quitWindow() # escape will quitWindow the game
 			elif event.key == pygame.K_LEFT:
-				move_cam("left")  # left arrow moves the camera left one tile
+				move_cam("left") # left arrow moves the camera left one tile
 			elif event.key == pygame.K_UP:
-				move_cam("up")  # up arrow moves camera up one tile
+				move_cam("up") # up arrow moves camera up one tile
 			elif event.key == pygame.K_RIGHT:
-				move_cam("right")  # right arrow moves camera right one tile
+				move_cam("right") # right arrow moves camera right one tile
 			elif event.key == pygame.K_DOWN:
-				move_cam("down")  # down arrow moves camera down one tile
+				move_cam("down") # down arrow moves camera down one tile
 				
 		# If the event is a mouse click
 		elif event.type == pygame.MOUSEBUTTONDOWN:
